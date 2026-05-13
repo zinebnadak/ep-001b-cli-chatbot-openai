@@ -11,13 +11,13 @@ The same CLI chatbot from ep-001, full conversation history preserved across
 turns, but rebuilt with the OpenAI Python SDK and gpt-4o-mini.
 
 ## What I Learned
-› The memory mechanic is identical. A list of dicts with `"role"` and `"content"`, sent with every request. The model is stateless on both APIs.
-› OpenAI´s old API for chat was widely known the "Chat Completions API": `client.chat.completions.create()`
-› Anthropic: `client.messages.create()` OpenAI (new): `client.responses.create()` and uses input=, instead of messages= like Anthropic and the old API does. 
-› The parameter names are different but the logic is the same. `messages=` becomes `input=`, `system=` becomes `instructions=`.
-› Anthropic requires no `api_key=` argument if the key is set in the environment, the client picks it up automatically `Anthropic()`. OpenAI requires you to pass it explicitly with `OpenAI(api_key=...)`
-›`RateLimitError` and `APIError` for error handling exist in both SDKs.
-› I noticed the OpenAI API response structure is slightly different when drilling into it to extract the text and append it to history. Anthropic response object: `message.content[0].text`. OpenAI response object: `response.output[0].content[0].text`
+- The memory mechanic is identical. A list of dicts with `"role"` and `"content"`, sent with every request. The model is stateless on both APIs.
+- OpenAI´s old API for chat was widely known the "Chat Completions API": `client.chat.completions.create()`
+- Anthropic: `client.messages.create()` OpenAI (new): `client.responses.create()` and uses input=, instead of messages= like Anthropic and the old API does. 
+- The parameter names are different but the logic is the same. `messages=` becomes `input=`, `system=` becomes `instructions=`.
+- Anthropic requires no `api_key=` argument if the key is set in the environment, the client picks it up automatically `Anthropic()`. OpenAI requires you to pass it explicitly with `OpenAI(api_key=...)`
+-`RateLimitError` and `APIError` for error handling exist in both SDKs.
+- I noticed the OpenAI API response structure is slightly different when drilling into it to extract the text and append it to history. Anthropic response object: `message.content[0].text`. OpenAI response object: `response.output[0].content[0].text`
 
 
 ## How to Run
