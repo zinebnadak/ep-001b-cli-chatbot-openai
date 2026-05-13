@@ -21,6 +21,7 @@ turns, but rebuilt with the OpenAI Python SDK and gpt-4o-mini.
 - `python-dotenv` — loads the API key from `.env`
 
 ## References
+- [Create a model response, accepted parameters](https://developers.openai.com/api/reference/python/resources/responses/methods/create)
 
 
 by [Zineb Nadak](https://github.com/zinebnadak) · [X](https://x.com/zinebnadak) · [LinkedIn](https://www.linkedin.com/in/zinebnadak)
